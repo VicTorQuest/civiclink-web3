@@ -1,0 +1,36 @@
+{
+  "name": "civiclink",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "test": "npx hardhat run scripts/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VicTorQuest/civiclink-web3.git"
+  },
+  "keywords": [
+    "civiclink",
+    "get",
+    "verified",
+    "government",
+    "information",
+    "decentralized",
+    "civil",
+    "system",
+    "web3",
+    "organization"
+  ],
+  "author": "Victor Okolie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VicTorQuest/civiclink-web3/issues"
+  },
+  "homepage": "https://github.com/VicTorQuest/civiclink-web3#readme",
+  "description": "",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.4.7",
+    "hardhat": "^2.22.19"
+  }
+}
