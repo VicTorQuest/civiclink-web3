@@ -1,5 +1,3 @@
 # Civiclink
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
-
-Try running some of the following tasks:
+CivicLink is a decentralized Web3 application that provides verified public official contact details using smart contracts. Users access official information directly through their wallet (via MetaMask), and the app leverages the blockchain for secure, immutable data storage. With built-in functionality for user registration and basic messaging, CivicLink ensures transparency and trust in government communication.
