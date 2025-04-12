@@ -75,3 +75,5 @@ The CivicLink smart contract is written in Solidity and provides a fully decentr
   All data is stored directly on-chain, ensuring immutability and making the system tamper-proof.
 
 User authentication is entirely wallet-based, with each function call using the caller’s wallet address (msg.sender) as the unique identifier.
+
+Deplpoyed contract address: 0xB3be2E51EdAeC9dB5CE98Db1C04b66895774Fd9a

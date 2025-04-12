@@ -3,25 +3,36 @@ pragma solidity ^0.8.28;
 
 // Uncomment this line to use console.log
 import "hardhat/console.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract CivicLink {
+contract CivicLink is Ownable {
+
+    constructor() Ownable(msg.sender) {
+
+    }
 
     struct Official {
         uint256 id;
         string name;
-        string role;           // e.g., "Minister of Finance"
-        string contactEmail;   // Verified contact email address
-        string officeLine;     // Verified office line
-        string structureName;  // Name of associated government structure
+        string role;            // e.g., "Minister of Finance"
+        string about;           // About the official
+        string contactEmail;    // Verified contact email address
+        string officeLine;      // Verified office line
+        address walletAddress;    // Verified address of the official
+        string imageUrl;        // Photo of verified government official
+        uint256 verifiedAt;     // Verification date
+        string structureName;   // Name of associated government structure
     }
+
+    enum MessageStatus { Sent, Read }
 
     struct Message {
         uint256 id;
-        address senderAddress;     // Sender's(possibly user) id
-        uint256 receiverId;   // Official's ID
-        string content;       // Message content
-        uint256 timestamp;    // Timestamp when the message was sent
-        string status;        // e.g., "sent", "read"
+        address senderAddress;  // Sender's(possibly user) address
+        uint256 receiverId;     // Official's ID
+        string content;         // Message content
+        uint256 timestamp;      // Timestamp when the message was sent
+        MessageStatus status;   // e.g., "sent", "read"
     }
 
     // --- State Variables ---
@@ -29,7 +40,7 @@ contract CivicLink {
     uint256 public messageCount;
 
 
-     // Mapping for officials: official ID => Official struct
+    // Mapping for officials: official ID => Official struct
     mapping(uint256 => Official) public officials;
     uint256[] public officialIds; // List of all official IDs
 
@@ -39,6 +50,8 @@ contract CivicLink {
 
     // Mapping for message ID => Message struct
     mapping(uint256 => Message) public messages;
+
+    mapping(uint256 => uint256[]) private officialMessageIds;
 
 
     // --- Events ---
@@ -56,7 +69,9 @@ contract CivicLink {
      */
     function _contains(string memory str, string memory substr) internal pure returns (bool) {
         bytes memory strBytes = bytes(str);
+        if (strBytes.length == 0) return false; 
         bytes memory substrBytes = bytes(substr);
+        if (substrBytes.length == 0) return false; 
         if (substrBytes.length > strBytes.length) return false;
         for (uint256 i = 0; i <= strBytes.length - substrBytes.length; i++) {
             bool found = true;
@@ -75,7 +90,7 @@ contract CivicLink {
 
     // --- Official Information Functions ---
 
-    /**
+    /*
      * @notice Adds a new official's verified contact details.
      * @dev For MVP purposes, this function is public. In production, access control should restrict it to authorized parties.
      * @param _name The official's full name.
@@ -87,18 +102,22 @@ contract CivicLink {
      */ 
 
 
-    function addOfficial(string calldata _name, string calldata _role, string calldata _contactEmail, string calldata _officeLine, string calldata _structureName) external returns (bool success) {
+    function addOfficial(Official calldata _params) external onlyOwner returns (bool) {
         officialCount++;
         officials[officialCount] = Official({
             id: officialCount,
-            name: _name,
-            role: _role,
-            contactEmail: _contactEmail,
-            officeLine: _officeLine,
-            structureName: _structureName
+            name: _params.name,
+            role: _params.role,
+            about: _params.about,
+            contactEmail: _params.contactEmail,
+            officeLine: _params.officeLine,
+            walletAddress: _params.walletAddress,
+            imageUrl: _params.imageUrl,
+            verifiedAt: block.timestamp,
+            structureName: _params.structureName
         });
         officialIds.push(officialCount);
-        emit OfficialAdded(officialCount, _name);
+        emit OfficialAdded(officialCount, _params.name);
         return true;
     }
 
@@ -130,28 +149,29 @@ contract CivicLink {
      * @param _keyword The search keyword; matches against the official's name, role, or structure name.
      * @return results An array of Official structs matching the search criteria.
      */
-    function searchOfficials(string calldata _keyword) external view returns (Official[] memory results) {
+    function searchOfficials(string calldata _keyword) external view returns (Official[] memory) {
+        Official[] memory tempMatches = new Official[](officialIds.length);
         uint256 matchCount = 0;
+
         for (uint256 i = 0; i < officialIds.length; i++) {
             Official memory off = officials[officialIds[i]];
             if (_contains(off.name, _keyword) ||
                 _contains(off.role, _keyword) ||
                 _contains(off.structureName, _keyword)) {
+                tempMatches[matchCount] = off;
                 matchCount++;
             }
         }
-        results = new Official[](matchCount);
-        uint256 j = 0;
-        for (uint256 i = 0; i < officialIds.length; i++) {
-            Official memory off = officials[officialIds[i]];
-            if (_contains(off.name, _keyword) ||
-                _contains(off.role, _keyword) ||
-                _contains(off.structureName, _keyword)) {
-                results[j] = off;
-                j++;
-            }
+
+        // Copy matched results into correctly-sized array
+        Official[] memory results = new Official[](matchCount);
+        for (uint256 i = 0; i < matchCount; i++) {
+            results[i] = tempMatches[i];
         }
+
+        return results;
     }
+
 
 
     /**
@@ -170,12 +190,26 @@ contract CivicLink {
             receiverId: _receiverId,
             content: _content,
             timestamp: block.timestamp,
-            status: "sent"
+            status: MessageStatus.Sent
         });
         userMessageIds[msg.sender].push(messageCount);
+        officialMessageIds[_receiverId].push(messageCount);
         emit MessageSent(messageCount, msg.sender, _receiverId);
         return true;
     }
+
+
+    // Add new function:
+    function getOfficialMessages(uint256 _officialId) external view returns (Message[] memory) {
+        require(_officialId > 0 && _officialId <= officialCount, "Invalid official ID");
+        uint256[] memory msgIds = officialMessageIds[_officialId];
+        Message[] memory received = new Message[](msgIds.length);
+        for (uint256 i = 0; i < msgIds.length; i++) {
+            received[i] = messages[msgIds[i]];
+        }
+        return received;
+    }
+
 
     /**
      * @notice Retrieves the message history for the caller.
