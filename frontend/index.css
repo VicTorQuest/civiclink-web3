@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: radial-gradient( #223474, #091437);
+    
+    
+}
+
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+    
+}
+
+#navbar a:hover{
+    border-bottom: 2px solid white;
+}
+h1{
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 10px 0;
+    
+}
+img{
+    width: 100%;
+}
+
+#navbar{
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    height: 90px;
+    padding: 10px;
+}
+
+#navbar ul{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#navbar ul li{
+    margin: 15px 10px;
+}
+
+#navbar button{
+    background: linear-gradient(to right,#4460BC,#88DDD3);
+    color: white;
+    padding: 10px, 5px;
+    margin-top: 10px;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#navbar button a{
+
+    color: white;
+}
+
+#section_1{
+    color: white;
+    text-align: center;
+    margin-top: 70px;
+}
+#section_1 h1{
+    line-height: 1.6em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+}
+
+#section_1 p{
+    padding-left: 80px;
+    padding-right: 80px;
+    line-height: 1.5em;
+    margin-bottom: 20px;
+}
+
+#section_1 input{
+    padding-left: 10px;
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: #091437;
+
+}
+
+
+#section_1 button{
+    height: 40px;
+    width: 120px;
+    background-color: white;
+    color: #091437;
+    border: none;
+    margin-left: 5px;
+    border-radius: 5px;
+
+}
+
+#section_1 button a{
+    color: #062690;
+    text-decoration: none;
+    
+}

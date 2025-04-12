@@ -1,0 +1,180 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #091437;
+}
+
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+    
+}
+
+#navbar a:hover{
+    border-bottom: 2px solid white;
+}
+h1{
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 10px 0;
+    
+}
+img{
+    width: 100%;
+}
+
+#navbar{
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    height: 90px;
+    padding: 10px;
+}
+
+#navbar ul{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#navbar ul li{
+    margin: 15px 10px;
+}
+
+#navbar button{
+    background: linear-gradient(to right,#4460BC,#88DDD3);
+    color: white;
+    padding: 10px, 5px;
+    margin-top: 10px;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#navbar button a{
+
+    color: white;
+}
+
+#section_1 .sec_1{
+    display: flex;
+    margin-left: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#section_1 .sec_1 button{
+    width: 120px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid white;
+    background-color: #091437;
+    color: white;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#section_1 .sec_1 img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+#section_1 .sec_1 .se_1{
+    line-height: 30px;
+    color: white;
+}
+
+#section_1 .sec_1 .se_1 span img{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+#section_1 .sec_1 .se_1 span{
+    color: #036537;
+}
+
+#sec_2{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 80%;
+    margin-left: 60px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+#sec_2 p{
+    line-height: 25px;
+}
+
+#sec_2 h6{
+    margin-bottom: 20px;
+}
+
+#sec_3{
+    color: white;
+    margin-left: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#sec_3 h6{
+    margin-bottom: 20px;
+}
+
+#sec_3 .flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#sec_3 .flex div{
+    width: 300px;
+    padding: 15px 10px;
+    border: 1px solid white;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #80808033;
+}
+
+#sec_4{
+    margin: 40px 70px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#sec_4 h6{
+    margin-bottom: 10px;
+}
+
+#sec_4 .btn_4 button{
+    width: 150px;
+    padding: 5px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    margin-right: 5px;
+
+}
+
+#sec_4 .btn_4 .btn_1{
+    background-color: #036537;
+    color: white;
+    cursor: pointer;
+}
+
+#sec_4 .btn_4 .btn_2{
+    background-color: #EF4444;
+    color: white;
+    cursor: pointer;
+}
