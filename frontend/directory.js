@@ -9,7 +9,7 @@ if (ministerId) {
       const minister = data.data;
 
       // Fill in the sections
-      document.querySelector("#minister-avatar").src = minister.category.image || './images/Ellipse 1.png'; // fake avatar
+      document.querySelector("#minister-avatar").src = minister.image || './images/Ellipse 1.png'; // fake avatar
 
       document.querySelector("#section_1 h1").textContent = minister.name;
       document.querySelector("#section_1 p").textContent = `${minister.level} Minister for ${minister.position}, Nigeria`;

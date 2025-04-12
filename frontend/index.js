@@ -15,7 +15,7 @@ fetch("https://civiclink-backend-g3.onrender.com/api/v1/officials")
 
       // Fill in the data
 
-      clone.querySelector("#minister-avatar").src = minister.category.image || './images/Ellipse 1.png'; // fake avatar
+      clone.querySelector("#minister-avatar").src = minister.image || './images/Ellipse 1.png'; // fake avatar
       clone.querySelector("#minister-name").textContent = minister.name;
       clone.querySelector("#minister-title").textContent = minister.position;
       clone.querySelector("#minister-description").textContent = minister.description;
