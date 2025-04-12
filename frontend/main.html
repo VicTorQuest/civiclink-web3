@@ -79,6 +79,34 @@
             <button class="wallet"><a href="wallet.html">connect wallet</a></button>
         </div>
 
+        <div id="minister-template ">
+            <section class="foot_1" id="minister-section">
+                <div class="flame_1">
+                    <div class="part_1">
+                        <div>
+                            <img src="" alt="" id="minister-avatar">
+                        </div>
+                        <div>
+                            <h2 id="minister-name">
+                                <!-- Name will go here -->
+                                <img src="images/Frame1.png" alt="" id="verified-icon">  
+                                <button class="btn_v" id="minister-level">
+                                    <img src="images/Vector.png" alt=""> <!-- icon remains static -->
+                                    <span id="minister-level-text"></span>
+                                </button>
+                            </h2>
+                            <p class="p_1" id="minister-title"></p>
+                            <p class="p_2" id="minister-description"></p>
+                        </div>
+                    </div>
+                    <a href="#" id="contact-link" style="cursor: pointer;">
+                        <button>View Contact</button>
+                    </a>
+                </div>
+            </section>
+        </div>
+        
+
         <section class="foot_1">
             <div class="flame_1">
                 <div class="part_1">
@@ -86,12 +114,16 @@
                         <img src="images/Ellipse 1.png" alt="">
                     </div>
                     <div>
-                        <h2>Engr. Adebayo Adelabu <img src="images/Frame1.png" alt=""> <button class="btn_v"><img src="images/Vector.png" alt="">Federal</button></h2>
+                        <h2>Engr. Adebayo Adelabu 
+                           <img src="images/Frame1.png" alt="">   <!-- verified icon -->
+                            <button class="btn_v">
+                                <img src="images/Vector.png" alt="">Federal</button>
+                        </h2>
                         <p class="p_1">Minister for Electricity and Power, Lagos State.</p>
                         <p class="p_2">Dr. Adebayo Adelabu has been the Federal Minister of Power in Nigeria since August 21, 2023. He oversees national electricity and power affairs, working with commissioners and agencies to improve the sector and ensure sustainable energy access across the country.</p>
                     </div>
                 </div>
-                <button>View Contact</button>
+                <a href="directory.html" style="cursor: pointer;"><button href="">View Contact</button></a>
             </div>
         </section>
         <section class="foot_2">
@@ -106,10 +138,9 @@
                         <p class="p_2">Dr. Adebayo Adelabu has been the Federal Minister of Power in Nigeria since August 21, 2023. He oversees national electricity and power affairs, working with commissioners and agencies to improve the sector and ensure sustainable energy access across the country.</p>
                     </div>
                 </div>
-                <button>View Contact</button>
+                <a href="directory.html" style="cursor: pointer;"><button>View Contact</button></a>
             </div>
         </section>
-
         <section class="foot_3">
             <div class="flame_1">
                 <div class="part_1">
@@ -122,7 +153,7 @@
                         <p class="p_2">Dr. Adebayo Adelabu has been the Federal Minister of Power in Nigeria since August 21, 2023. He oversees national electricity and power affairs, working with commissioners and agencies to improve the sector and ensure sustainable energy access across the country.</p>
                     </div>
                 </div>
-                <button>View Contact</button>
+                <a href="directory.html" style="cursor: pointer;"><button>View Contact</button></a>
             </div>
         </section>
     </footer>
@@ -131,4 +162,67 @@
 
     <script type="module" src="index.js"></script>
 </body>
+
+<!-- <script>
+    // Example: API data shape
+    const apiUrl = "https://jsonplaceholder.typicode.com/users";
+  
+    fetch(apiUrl)
+      .then(res => res.json())
+      .then(data => {
+        // Destructure or use directly
+        // document.getElementById("minister-avatar").src = data[0].avatarUrl;
+        document.getElementById("minister-avatar").src = "https://res.cloudinary.com/dc5ydg6it/image/upload/v1742033745/dieol6oclsgkajwkjohw.jpg";
+        document.getElementById("minister-name").childNodes[0].nodeValue = data[0].name + " ";
+        
+        if (data[0].verified) {
+          document.getElementById("verified-icon").style.display = "inline";
+        }
+  
+        document.getElementById("minister-level-text").textContent = data[0].level;
+        document.getElementById("minister-title").textContent = data[0].email;
+        document.getElementById("minister-description").textContent = data[0].company.catchPhrase;
+        document.getElementById("contact-link").href = data[0].contactLink;
+      })
+      .catch(err => {
+        console.error("Failed to load minister data:", err);
+      });
+  </script> -->
+
+    <script>
+        fetch("https://jsonplaceholder.typicode.com/users") // your API endpoint
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data)
+            const container = document.getElementById("minister-template");
+            const template = document.getElementById("minister-section");
+            
+            template.remove();
+
+            data.forEach(minister => {
+
+                console.log(minister.name)
+                console.log("hellooo")
+                const clone = template.content.cloneNode(true);
+        
+                clone.querySelector(".minister-avatar").src = minister.avatarUrl;
+                clone.querySelector(".minister-name").textContent = minister.name;
+        
+                if (minister.verified) {
+                    clone.querySelector(".verified-icon").style.display = "inline";
+                }
+        
+                clone.querySelector(".minister-level-text").textContent = minister.level;
+                clone.querySelector(".minister-title").textContent = minister.title;
+                clone.querySelector(".minister-description").textContent = minister.description;
+                clone.querySelector(".contact-link").href = minister.contactLink;
+        
+                container.appendChild(clone);
+            });
+        })
+        .catch(err => {
+            console.error("Failed to load ministers:", err);
+        });
+    </script>
 </html>
+
