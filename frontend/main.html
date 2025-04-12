@@ -72,14 +72,14 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="#">Directory</a></li>
                     <li><a href="feedback.html">Feedback</a></li>
                 </ul>
             </nav>
             <button class="wallet"><a href="wallet.html">connect wallet</a></button>
         </div>
 
-        <div id="minister-template ">
+        <div id="minister-template">
             <section class="foot_1" id="minister-section">
                 <div class="flame_1">
                     <div class="part_1">
@@ -162,67 +162,5 @@
 
     <script type="module" src="index.js"></script>
 </body>
-
-<!-- <script>
-    // Example: API data shape
-    const apiUrl = "https://jsonplaceholder.typicode.com/users";
-  
-    fetch(apiUrl)
-      .then(res => res.json())
-      .then(data => {
-        // Destructure or use directly
-        // document.getElementById("minister-avatar").src = data[0].avatarUrl;
-        document.getElementById("minister-avatar").src = "https://res.cloudinary.com/dc5ydg6it/image/upload/v1742033745/dieol6oclsgkajwkjohw.jpg";
-        document.getElementById("minister-name").childNodes[0].nodeValue = data[0].name + " ";
-        
-        if (data[0].verified) {
-          document.getElementById("verified-icon").style.display = "inline";
-        }
-  
-        document.getElementById("minister-level-text").textContent = data[0].level;
-        document.getElementById("minister-title").textContent = data[0].email;
-        document.getElementById("minister-description").textContent = data[0].company.catchPhrase;
-        document.getElementById("contact-link").href = data[0].contactLink;
-      })
-      .catch(err => {
-        console.error("Failed to load minister data:", err);
-      });
-  </script> -->
-
-    <script>
-        fetch("https://jsonplaceholder.typicode.com/users") // your API endpoint
-        .then(res => res.json())
-        .then(data => {
-            // console.log(data)
-            const container = document.getElementById("minister-template");
-            const template = document.getElementById("minister-section");
-            
-            template.remove();
-
-            data.forEach(minister => {
-
-                console.log(minister.name)
-                console.log("hellooo")
-                const clone = template.content.cloneNode(true);
-        
-                clone.querySelector(".minister-avatar").src = minister.avatarUrl;
-                clone.querySelector(".minister-name").textContent = minister.name;
-        
-                if (minister.verified) {
-                    clone.querySelector(".verified-icon").style.display = "inline";
-                }
-        
-                clone.querySelector(".minister-level-text").textContent = minister.level;
-                clone.querySelector(".minister-title").textContent = minister.title;
-                clone.querySelector(".minister-description").textContent = minister.description;
-                clone.querySelector(".contact-link").href = minister.contactLink;
-        
-                container.appendChild(clone);
-            });
-        })
-        .catch(err => {
-            console.error("Failed to load ministers:", err);
-        });
-    </script>
 </html>
 
