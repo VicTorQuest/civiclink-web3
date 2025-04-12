@@ -112,3 +112,8 @@ img{
     text-decoration: none;
     
 }
+
+
+#searchInput {
+    color: #fff !important;
+}
