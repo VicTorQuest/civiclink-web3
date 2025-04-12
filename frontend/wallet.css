@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: radial-gradient( #223474, #0e1d4f);
+    
+    
+}
+
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+    
+}
+
+#navbar a:hover{
+    border-bottom: 2px solid white;
+}
+h1{
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 10px 0;
+    
+}
+
+img{
+    width: 100%;
+}
+
+#navbar{
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    height: 90px;
+    padding: 10px;
+}
+
+#navbar ul{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#navbar ul li{
+    margin: 15px 10px;
+}
+
+#navbar button{
+    background: linear-gradient(to right,#4460BC,#88DDD3);
+    color: white;
+    padding: 10px, 5px;
+    margin-top: 10px;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+}
+
+#navbar button a{
+
+    color: white;
+}
+
+.conn{
+    margin-top: 100px;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+.conn button{
+    background: linear-gradient(to right,#4460BC,#88DDD3);
+    color: white;
+    padding: 10px, 5px;
+    margin-top: 10px;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+}
+
+.conn a{
+
+    color: white;
+}
+
+#wallet{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#wallet button{
+    color: white;
+    height: 35px;
+    background-color: #2B3342;
+    border: none;
+    border-radius: 5px;
+}
+
+#wallet button span{
+    margin-left: 10px;
+}
+
+#wallet button span{
+    margin-right: 250px;
+}
+
+ #wallet button .s1{
+    margin-right: 283px;
+}
+
+#wallet button .s3{
+    margin-right: 260px;
+}
+
+#wallet button .s4{
+    margin-right: 310px;
+}
+
+#wallet button i{
+    margin-right: 10px;
+}
+
+/* #wallet .btn1 span{
+    margin-left: 0px;
+} */
+
+#wallet img{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.footer{
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+}

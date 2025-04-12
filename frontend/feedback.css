@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #091437;
+}
+
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+    
+}
+
+#navbar a:hover{
+    border-bottom: 2px solid white;
+}
+h1{
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 10px 0;
+    
+}
+img{
+    width: 100%;
+}
+
+#navbar{
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    height: 90px;
+    padding: 10px;
+}
+
+#navbar ul{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#navbar ul li{
+    margin: 15px 10px;
+}
+
+#navbar button{
+    background: linear-gradient(to right,#4460BC,#88DDD3);
+    color: white;
+    padding: 10px, 5px;
+    margin-top: 10px;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#sec_1{
+    color: white;
+    margin-left: 70px;
+}
+
+#sec_1 p{
+    margin-bottom: 20px;
+}
+
+#sec_1 button{
+    width: 170px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: white;
+}
+
+#sec_2{
+    margin-left: 75px;
+    margin-top: 30px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+#sec_2 p{
+    margin-bottom: 10px;
+}
+
+#sec_2 textarea{
+    width: 80%;
+    height: 100px;
+    border-radius: 10px;
+    background-color: #80808033;
+    color: white;
+    border: 1px solid white;
+}
+
+#sec_3{
+    margin-left: 75px;
+    margin-top: 30px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+#sec_3 p{
+    margin-bottom: 10px;
+}
+
+#sec_3 textarea{
+    width: 80%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #80808033;
+    color: white;
+    border: 1px solid white;
+}
+
+#sec_4{
+    margin-left:750px;
+    margin-bottom: 100px;
+}
+
+#sec_4 button{
+    color: white;
+    padding: 10px, 5px;
+    margin-left: 10px;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+
+}
+
+#sec_4 .can{
+    background-color: #091437;
+    color: white;
+    border: 1px solid white;
+}
+
+#sec_4 .sub{
+    background-color: #294dc1;
+    color: white;
+    border: 1px solid white;
+}
