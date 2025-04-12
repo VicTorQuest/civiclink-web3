@@ -31,14 +31,11 @@ connectBtn.addEventListener('click', async () => {
     await initializeContract();
 });
 
-// Initialize contract after wallet connection
 async function initializeContract() {
-    const contractAddress = '0xB3be2E51EdAeC9dB5CE98Db1C04b66895774Fd9a'; // Update with actual address
+    const contractAddress = '0xB3be2E51EdAeC9dB5CE98Db1C04b66895774Fd9a'; 
     
-    // You need to import your actual contract ABI here
     const contractABI = [
-        // Paste your contract ABI array here
-        // From artifacts/contracts/CivicLink.sol/CivicLink.json -> "abi" array
+        await 'artifacts/contracts/CivicLink.sol/CivicLink.json' // "abi" array
     ];
 
     contract = new ethers.Contract(contractAddress, contractABI, signer);
